@@ -116,6 +116,9 @@ Use case ends.
 2. Should be able to hold up to 1000 persons.
 3. Should come with automated unit tests and open source code.
 4. Should favor DOS style commands over Unix-style commands.
+5. Should have a user-friendly interface
+6. Should be able to accept persons with incomplete profile information
+8. Should have log-in system or user validation system when access the addressbook system
 
 ## Appendix D : Glossary
 
