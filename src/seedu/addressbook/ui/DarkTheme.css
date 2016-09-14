@@ -3,15 +3,21 @@
 .text-field {
     -fx-font-size: 12pt;
     -fx-font-family: "Consolas";
-    -fx-font-weight: bold;
-    -fx-text-fill: yellow;
-    -fx-control-inner-background: derive(#1d1d1d,20%);
+    -fx-font-weight: light;
+    -fx-text-fill: #b0a18e;
+    -fx-control-inner-background: derive(#49412c, 10%);
+}
+
+.text-field:focused {
+	-fx-border-color: white;
+	-fx-font-weight: bold;
 }
 
 .text-area {
     -fx-background-color: black;
-    -fx-control-inner-background: black;
+    -fx-control-inner-background: #262216;
     -fx-font-family: "Segoe UI Semibold";
     -fx-font-size: 10pt;
+    -fx-text-fill: #97743a;
     -fx-padding: 5 5 5 5;
 }
