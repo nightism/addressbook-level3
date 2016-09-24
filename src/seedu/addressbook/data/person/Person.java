@@ -45,6 +45,7 @@ public class Person implements ReadOnlyPerson {
 		this.email = email;
 		this.address = address;
         try {
+        	this.tags.clear();
 			this.tags.addAll(tags);
 		} catch (DuplicateTagException e) {
 			// do nothing
