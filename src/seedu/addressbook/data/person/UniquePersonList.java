@@ -133,7 +133,7 @@ public class UniquePersonList implements Iterable<Person> {
     public Person find(Person target) {
 		Person result = null;
     	for(Person p : this.internalList) {
-			if(p.getName() == target.getName()) {
+			if(p.getName().equals(target.getName())) {
 				result = p;
 			}
 		}
