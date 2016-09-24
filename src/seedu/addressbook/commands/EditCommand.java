@@ -28,6 +28,7 @@ public class EditCommand extends Command {
             + " John Doe p/98765432 e/johnd@gmail.com a/311, Clementi Ave 2, #02-25 t/friends t/owesMoney";
 
     public static final String MESSAGE_SUCCESS = "Person editted: %1$s";
+    public static final String MESSAGE_NO_SUCH_PERSON = "This person does not exist in the address book";
    
     private final Person toEdit;
     
@@ -64,8 +65,12 @@ public class EditCommand extends Command {
 	
 	@Override
 	public CommandResult execute() {
-		addressBook.editPerson(toEdit);
-		return new CommandResult(String.format(MESSAGE_SUCCESS, toEdit));
+		try {
+			addressBook.editPerson(toEdit);
+			return new CommandResult(String.format(MESSAGE_SUCCESS, toEdit));
+		} catch (UniquePersonList.NoSuchPersonException e) {
+			return new CommandResult(MESSAGE_NO_SUCH_PERSON);
+		}
 	}
 
 }

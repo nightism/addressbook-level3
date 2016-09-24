@@ -86,9 +86,11 @@ public class AddressBook {
      * Edits a person's information in the address book.
      * Also checks the new person's tags and updates {@link #allTags} with any new tags found,
      * and updates the Tag objects in the person to point to those in {@link #allTags}.
+     * 
+     * @throws NoSuchPersonException 
      *
      */
-    public void editPerson(Person toEdit) {
+    public void editPerson(Person toEdit) throws NoSuchPersonException {
     	syncTagsWithMasterList(toEdit);
     	allPersons.edit(toEdit);
     }
