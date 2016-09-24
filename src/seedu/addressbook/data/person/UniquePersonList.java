@@ -93,6 +93,19 @@ public class UniquePersonList implements Iterable<Person> {
         }
         internalList.add(toAdd);
     }
+    
+    /**
+     * Edits a person in the list.
+     */    
+    public void edit(Person toEdit) {
+    	if (contains(toEdit)) {
+    		Person personInTheList = this.find(toEdit);
+    		// TODO
+    		// edit this person's information
+    	} else {
+    		// TODO implement NoSuchPersonException
+    	}
+    }
 
     /**
      * Removes the equivalent person from the list.
@@ -111,6 +124,13 @@ public class UniquePersonList implements Iterable<Person> {
      */
     public void clear() {
         internalList.clear();
+    }
+    
+    /**
+     *  Find a person in the list
+     */
+    public Person find(Person target) {
+		return null;
     }
 
     @Override

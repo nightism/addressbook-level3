@@ -90,8 +90,7 @@ public class AddressBook {
      */
     public void editPerson(Person toEdit) {
     	syncTagsWithMasterList(toEdit);
-    	// TODO implementation of the method below
-    	//allPersons.edit(toEdit);
+    	allPersons.edit(toEdit);
     }
     
     /**
