@@ -79,6 +79,9 @@ public class Parser {
 
             case ViewAllCommand.COMMAND_WORD:
                 return prepareViewAll(arguments);
+                
+            case EditCommand.COMMAND_WORD:
+                return prepareEdit(arguments);
 
             case ExitCommand.COMMAND_WORD:
                 return new ExitCommand();
@@ -120,6 +123,40 @@ public class Parser {
             return new IncorrectCommand(ive.getMessage());
         }
     }
+    
+    /**
+     * Parses arguments in the context of the edit person command.
+     *
+     * @param args full command args string
+     * @return the prepared command
+     */
+    private Command prepareEdit(String args) {
+    	final Matcher matcher = PERSON_DATA_ARGS_FORMAT.matcher(args.trim());
+    	// Validate arg string format
+    	if (!matcher.matches()) {
+    		return new IncorrectCommand(String.format(MESSAGE_INVALID_COMMAND_FORMAT, AddCommand.MESSAGE_USAGE));
+    	}
+    	try {
+    		return new EditCommand(
+    				matcher.group("name"),
+    				
+    				matcher.group("phone"),
+    				isPrivatePrefixPresent(matcher.group("isPhonePrivate")),
+    				
+    				matcher.group("email"),
+    				isPrivatePrefixPresent(matcher.group("isEmailPrivate")),
+    				
+    				matcher.group("address"),
+    				isPrivatePrefixPresent(matcher.group("isAddressPrivate")),
+    				
+    				getTagsFromArgs(matcher.group("tagArguments"))
+    		);
+    	} catch (IllegalValueException ive) {
+    		return new IncorrectCommand(ive.getMessage());
+    	}
+    	
+    }
+    
 
     /**
      * Checks whether the private prefix of a contact detail in the add command's arguments string is present.
