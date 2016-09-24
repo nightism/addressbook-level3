@@ -1,6 +1,7 @@
 package seedu.addressbook.data.person;
 
 import seedu.addressbook.data.tag.UniqueTagList;
+import seedu.addressbook.data.tag.UniqueTagList.DuplicateTagException;
 
 import java.util.Objects;
 
@@ -32,6 +33,23 @@ public class Person implements ReadOnlyPerson {
      */
     public Person(ReadOnlyPerson source) {
         this(source.getName(), source.getPhone(), source.getEmail(), source.getAddress(), source.getTags());
+    }
+    
+    /**
+     *  Re-construct the person
+     *  Used when the person's information needed to be changed/updated
+     */
+    public void updateInformation(Name name, Phone phone, Email email, Address address, UniqueTagList tags) {
+		this.name = name;
+		this.phone = phone;
+		this.email = email;
+		this.address = address;
+        try {
+			this.tags.addAll(tags);
+		} catch (DuplicateTagException e) {
+			// do nothing
+			// fine with duplicate Tags
+		}
     }
 
     @Override
