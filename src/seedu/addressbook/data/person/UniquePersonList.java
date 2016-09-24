@@ -131,13 +131,13 @@ public class UniquePersonList implements Iterable<Person> {
      *  Find a person in the list
      */
     public Person find(Person target) {
-		for(Person p : this.internalList) {
+		Person result = null;
+    	for(Person p : this.internalList) {
 			if(p.getName() == target.getName()) {
-				return p;
+				result = p;
 			}
 		}
-		// TODO implementation of NoSuchPersonException
-		return null;
+    	return result;
     }
 
     @Override
