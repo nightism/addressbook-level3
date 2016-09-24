@@ -64,8 +64,7 @@ public class EditCommand extends Command {
 	
 	@Override
 	public CommandResult execute() {
-		// TODO implement the method below in addressBook
-		// addressBook.editPerson(toEdit);
+		addressBook.editPerson(toEdit);
 		return new CommandResult(String.format(MESSAGE_SUCCESS, toEdit));
 	}
 

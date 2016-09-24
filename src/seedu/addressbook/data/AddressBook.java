@@ -81,7 +81,19 @@ public class AddressBook {
         syncTagsWithMasterList(toAdd);
         allPersons.add(toAdd);
     }
-
+    
+    /**
+     * Edits a person's information in the address book.
+     * Also checks the new person's tags and updates {@link #allTags} with any new tags found,
+     * and updates the Tag objects in the person to point to those in {@link #allTags}.
+     *
+     */
+    public void editPerson(Person toEdit) {
+    	syncTagsWithMasterList(toEdit);
+    	// TODO implementation of the method below
+    	//allPersons.edit(toEdit);
+    }
+    
     /**
      * Adds a tag to the list of tags present in the address book.
      *
