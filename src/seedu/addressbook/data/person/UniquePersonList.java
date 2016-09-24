@@ -98,8 +98,8 @@ public class UniquePersonList implements Iterable<Person> {
      * Edits a person in the list.
      */    
     public void edit(Person toEdit) {
-    	if (contains(toEdit)) {
-    		Person personInTheList = this.find(toEdit);
+    	Person personInTheList = this.find(toEdit);
+    	if (personInTheList != null) {
     		personInTheList.updateInformation(toEdit.getName(),
     				toEdit.getPhone(), toEdit.getEmail(), toEdit.getAddress(), 
     				toEdit.getTags());
