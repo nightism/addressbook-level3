@@ -100,8 +100,9 @@ public class UniquePersonList implements Iterable<Person> {
     public void edit(Person toEdit) {
     	if (contains(toEdit)) {
     		Person personInTheList = this.find(toEdit);
-    		// TODO
-    		// edit this person's information
+    		personInTheList.updateInformation(toEdit.getName(),
+    				toEdit.getPhone(), toEdit.getEmail(), toEdit.getAddress(), 
+    				toEdit.getTags());
     	} else {
     		// TODO implement NoSuchPersonException
     	}
