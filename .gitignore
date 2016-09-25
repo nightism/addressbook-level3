@@ -17,3 +17,7 @@ test/data/
 /bin/
 data/
 publish.sh
+
+# gradle files
+/.gradle
+/.settings
